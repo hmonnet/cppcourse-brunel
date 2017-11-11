@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+spikes = np.genfromtxt('spikes.txt', delimiter='	')
+nbSpikes = np.genfromtxt('nbSpikes.txt', delimiter='	')
+
+time1 = spikes[:,][:,0]
+neurons_spiking = spikes[:,][:,1]
+time2 = nbSpikes[:,][:,0]
+nb_spikes = nbSpikes[:,][:,1]
+
+#plot
+fig1 = plt.subplot(2, 1, 1)
+plt.scatter(time1, neurons_spiking, s=1, c='b')
+
+fig2 = plt.subplot(2, 1, 0, sharex=fig1)
+fig2.plot(time2, nb_spikes, c='r')
+
+plt.savefig('plot.png')
+plt.show()
